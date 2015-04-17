@@ -1,4 +1,4 @@
-package chat;
+
 
 import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;
