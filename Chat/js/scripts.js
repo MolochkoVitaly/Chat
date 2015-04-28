@@ -76,7 +76,6 @@ function addAllMessages(message) {
         messageDiv.find('.nick').html(task.user + ":");
         messageDiv.find('.message').html(task.message);
         messageDiv.attr('message-id', task.id);
-        messageDiv.attr('status', task.status);
         $('#showMessage').append(messageDiv.show());
         appState.messageList.push(message);
     }
@@ -240,7 +239,6 @@ $(document).ready(function () {
                 messageDiv.find('.nick').html($userName.html() + ":");
                 messageDiv.find('.message').html(message);
                 messageDiv.attr('message-id', uniqueId());
-                messageDiv.attr('status', true);
                 $('#showMessage').append(messageDiv.show());
                 $('#messageArea').val('');
             });
@@ -253,6 +251,9 @@ $(document).ready(function () {
         if($userName.html() + ":" != $(this).closest('.exampleMessage').find('.nick').html()){
             return;
         }
+        if( $(this).closest('.exampleMessage').find('.message').html() == "message has deleted.") {
+            return;
+        };
 
         $p = $(this).closest('.exampleMessage')
         $message = $p.find('.message')
